@@ -1,6 +1,6 @@
 #include "Matrice.h"
 using namespace std;
-Matrice* Matrice::creer_matrice(int lignes, int colonnes){
+Matrice* creer_matrice(int lignes, int colonnes){
     Matrice* m = new Matrice;
     m->nb_lines = lignes;
     m->nb_colones = colonnes;
@@ -15,14 +15,14 @@ Matrice* Matrice::creer_matrice(int lignes, int colonnes){
     }
     return m;
 }
-void Matrice::detruire_matrice(Matrice* m){
+void detruire_matrice(Matrice* m){
     for(int i = 0; i < m->nb_lines; i++){
         delete[] m->elements[i];
     }
     delete[] m->elements;
     delete m;
 }
-void Matrice::afficher_matrice(Matrice* m){
+void afficher_matrice(Matrice* m){
     for(int i=0 ; i < m->nb_lines; i++){
         for(int j=0 ; j < m->nb_colones; j++){
             std::cout << m->elements[i][j] << " ";
@@ -30,7 +30,7 @@ void Matrice::afficher_matrice(Matrice* m){
         std::cout << std::endl;
     }
 }
-Matrice* Matrice::addition_matrice(Matrice* m1, Matrice * m2){
+Matrice* addition_matrice(Matrice* m1, Matrice * m2){
     Matrice *m3 = new Matrice;
     if(m1 != nullptr && m2 != nullptr ){
         if( m1->nb_lines == m2->nb_lines && m1->nb_colones == m2->nb_colones){
@@ -50,7 +50,7 @@ Matrice* Matrice::addition_matrice(Matrice* m1, Matrice * m2){
     }
     return m3;
 }
-Matrice* Matrice::multiplication_matrice(Matrice* m1, Matrice* m2){
+Matrice* multiplication_matrice(Matrice* m1, Matrice* m2){
     Matrice* m3 = new Matrice;
     if(m1 != nullptr && m2 != nullptr){
         if(m1->nb_colones == m2->nb_lines){
@@ -73,7 +73,7 @@ Matrice* Matrice::multiplication_matrice(Matrice* m1, Matrice* m2){
     }
     return m3;
 }
-Matrice* Matrice::Transpose_matrice(Matrice* m){
+Matrice* Transpose_matrice(Matrice* m){
     Matrice* mt = new Matrice;
     if(m != nullptr){
         mt->nb_lines = m->nb_colones;
