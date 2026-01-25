@@ -21,10 +21,10 @@ unsigned int Rectangle::surface()const{
     return hauteur * largeur;
 }
 void Rectangle::set_Hauteur(unsigned int h){
-    hauteur += h;
+    hauteur = h;
 }
 void Rectangle::set_Largeur(unsigned int l){
-    largeur += l;
+    largeur = l;
 }
 bool Rectangle::operator==(const Rectangle& r)const{
     if (largeur == r.largeur && hauteur == r.hauteur)
